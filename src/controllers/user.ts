@@ -3,7 +3,6 @@ import UserRepo from '../database/repository/users';
 import { ApiResponse } from '../core/apiResponse';
 import { ApiError } from '../core/apiError';
 import { IUsers } from '../database/models/users';
-import _ from 'lodash';
 import jwt from 'jsonwebtoken';
 import { RequestWithUser } from '../middleware/authMiddleware';
 
@@ -37,7 +36,7 @@ export async function create(req: RequestWithUser, res: Response): Promise<any> 
     const token = jwt.sign(dataStoredInToken, secret, { expiresIn });
 
     return new ApiResponse<IResponse>(200, 'Sucessfully created user', true, {
-        ..._.pick(createdUser, ['_id', 'role']),
+        ...createdUser,
         token,
     }).send(res);
 }

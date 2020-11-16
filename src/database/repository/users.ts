@@ -1,5 +1,4 @@
 import UsersModel, { IUsers } from '../models/users';
-import { Types } from 'mongoose';
 import { ApiError } from '../../core/apiError';
 
 export default class UsersRepo {
