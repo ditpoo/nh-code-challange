@@ -16,7 +16,7 @@ module.exports = {
     rules: {
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
         // e.g. '@typescript-eslint/explicit-function-return-type': 'off',
-        // '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/explicit-function-return-type': 'error',
         'node/no-unsupported-features/es-syntax': 0,
         'node/no-missing-import': ['error', {
