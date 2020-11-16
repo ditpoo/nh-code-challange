@@ -2,6 +2,7 @@ import { Document, model, Schema } from 'mongoose';
 
 export interface IUsers extends Document {
     name?: string;
+    role: 'guest' | 'admin' | 'user';
     data?: any;
 }
 

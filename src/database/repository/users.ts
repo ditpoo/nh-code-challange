@@ -1,6 +1,7 @@
 import UsersModel, { IUsers } from '../models/users';
 import { Types } from 'mongoose';
 import { ApiError } from '../../core/apiError';
+import { logger } from '../../core/logger';
 
 export default class UsersRepo {
     static async create(item: IUsers): Promise<IUsers | null> {

@@ -26,9 +26,9 @@ app.use((req: Request, res: Response, next: NextFunction) => next(new NotFoundEr
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     logger.error(err);
     if (err instanceof ApiError) {
-        return new ApiResponse(err.status, err.message, false).send(res);
+        return new ApiResponse(err.status, err.message, false, {}).send(res);
     } else {
-        return new ApiResponse(500, 'Server Error', false);
+        return new ApiResponse(500, 'Server Error', false, {});
     }
 });
 
