@@ -1,0 +1,9 @@
+node_modules
+coverage
+lib
+.eslintrc.js
+.prettierrc.js
+.vscode
+jest.config.js
+package.json
+tsconfig.json
