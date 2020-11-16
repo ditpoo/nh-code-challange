@@ -1,7 +1,6 @@
 import UsersModel, { IUsers } from '../models/users';
 import { Types } from 'mongoose';
 import { ApiError } from '../../core/apiError';
-import { logger } from '../../core/logger';
 
 export default class UsersRepo {
     static async create(item: IUsers): Promise<IUsers | null> {
@@ -14,7 +13,7 @@ export default class UsersRepo {
         return createdUser.toObject();
     }
 
-    static async findById(id: Types.ObjectId): Promise<IUsers | null> {
+    static async findById(id: string): Promise<IUsers | null> {
         return UsersModel.findOne({ _id: id }).lean<IUsers>().exec();
     }
 }
