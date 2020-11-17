@@ -1,6 +1,3 @@
-## Automatic Anonymous User Creation Service
-
-
 # Start Server
 
 `yarn build` then `yarn start` or
@@ -27,4 +24,4 @@ Response:
     }
 }`
 
-Attach that token as a bearer token it will return the same token
+Attach that token as a bearer token it will return the same User
