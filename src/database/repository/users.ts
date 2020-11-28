@@ -8,4 +8,8 @@ export default class UsersRepo {
     static async findById(id: string): Promise<IUsers | null> {
         return UsersModel.findOne({ _id: id }).lean<IUsers>().exec();
     }
+
+    static async findByFingerprint(fingerprint: string): Promise<IUsers | null> {
+        return UsersModel.findOne({ fingerprint }).lean<IUsers>().exec();
+    }
 }

@@ -15,7 +15,20 @@ export async function create(req: RequestWithUser, res: Response): Promise<any> 
         return new ApiResponse<IUsers>(200, 'Sucessfully Retrived user', true, req.user).send(res);
     }
 
-    const createdUser = await UserRepo.create({ role: 'guest', isAnonymous: true } as IUsers);
+    const { fingerprint } = req.body;
+    const userProperties: IUsers = { role: 'guest', isAnonymous: true };
+
+    if (fingerprint) {
+        const retrivedUser = await UserRepo.findByFingerprint(fingerprint);
+
+        if (retrivedUser) {
+            return new ApiResponse<IUsers>(200, 'Sucessfully Retrived user', true, retrivedUser).send(res);
+        }
+
+        userProperties['fingerprint'] = fingerprint;
+    }
+
+    const createdUser = await UserRepo.create(userProperties);
 
     if (!createdUser) {
         throw new ApiError(500, 'Failed to create User');

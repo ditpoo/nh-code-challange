@@ -3,6 +3,7 @@ import { Document, model, Schema } from 'mongoose';
 export interface IUsers {
     _id?: string;
     name?: string;
+    fingerprint?: string;
     isAnonymous: boolean;
     role: 'guest' | 'admin' | 'user';
     data?: any;
@@ -11,6 +12,9 @@ export interface IUsers {
 const schema = new Schema(
     {
         name: {
+            type: String,
+        },
+        fingerprint: {
             type: String,
         },
         isAnonymous: {
