@@ -3,3 +3,4 @@ coverage
 lib
 jest.config.js
 .eslintrc.js
+README.md

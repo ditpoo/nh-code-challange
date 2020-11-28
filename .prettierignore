@@ -7,3 +7,4 @@ lib
 jest.config.js
 package.json
 tsconfig.json
+README.md

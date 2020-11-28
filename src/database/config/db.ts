@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { logger } from '../../core/logger';
+import { logger } from '../../helpers/logger';
 
 const options = {
     useNewUrlParser: true,

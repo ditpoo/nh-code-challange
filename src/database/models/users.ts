@@ -1,6 +1,7 @@
 import { Document, model, Schema } from 'mongoose';
 
-export interface IUsers extends Document {
+export interface IUsers {
+    _id?: string;
     name?: string;
     isAnonymous: boolean;
     role: 'guest' | 'admin' | 'user';
@@ -14,6 +15,7 @@ const schema = new Schema(
         },
         isAnonymous: {
             type: Boolean,
+            required: true,
             default: false,
         },
         role: {
@@ -29,6 +31,6 @@ const schema = new Schema(
     { timestamps: { createdAt: true, updatedAt: false } },
 );
 
-const UsersModel = model<IUsers>('User', schema, 'users');
+const UsersModel = model<IUsers & Document>('User', schema, 'users');
 
 export default UsersModel;

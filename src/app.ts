@@ -1,10 +1,10 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { logger } from './core/logger';
+import { logger } from './helpers/logger';
 import bodyParser from 'body-parser';
 import './database/config/db'; // initialize database
-import { NotFoundError, ApiError } from './core/apiError';
+import { NotFoundError, ApiError } from './helpers/apiError';
 import routesV1 from './routes/v1';
-import { ApiResponse } from './core/apiResponse';
+import { ApiResponse } from './helpers/apiResponse';
 
 process.on('uncaughtException', (e) => {
     logger.error(e);
