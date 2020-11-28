@@ -12,4 +12,8 @@ export default class UsersRepo {
     static async findByFingerprint(fingerprint: string): Promise<IUsers | null> {
         return UsersModel.findOne({ fingerprint }).lean<IUsers>().exec();
     }
+
+    static async update(_id: string, changes: any): Promise<IUsers | null> {
+        return UsersModel.updateOne({ _id }, changes);
+    }
 }
